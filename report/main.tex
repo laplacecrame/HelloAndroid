@@ -16,32 +16,43 @@
 \renewcommand{\abstractname}{摘要}
 \renewcommand{\refname}{参考文献}
 \setlength{\parindent}{3em}
+%图表标题设置
+\usepackage[margin=9pt, font=small, labelfont=bf,labelsep=quad]{caption}[2012/03/25 v3.3]
 
+%中英双标题
+%\bicaption{中文标题}{English title}
+% \usepackage{bicaption}[2012/04/09 v1.1]
 
-%超链接content
-\usepackage{hyperref}
-%页眉页脚
-%\usepackage{fancyhdr}
-%\pagestyle{fancy}
-%\fancyhead[L]{多功能职工文化中心 计算书}
-%\fancyhead[R]{结32 王超杰 2013010179}
+% \captionsetup[figure][bi-first]{name=图}
+% \captionsetup[figure][bi-second]{name=Figure}
 
+% \captionsetup[table][bi-first]{name=表}
+% \captionsetup[table][bi-second]{name=Table}
 
-%页边距
-\usepackage{geometry}
-\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
-
+%----------------------------------
+% enumerate setting
+\usepackage{enumitem}
+%----------------------------------
+%页面设置
 %使\section中的内容左对齐
 \usepackage[raggedright]{titlesec}
 
-
-%paragraph 参与编号
 \setcounter{secnumdepth}{4}
 
 \titleformat{\paragraph}
 {\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
 \titlespacing*{\paragraph}
 {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+%页眉页脚
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+%\fancyhead[L]{}
+%\fancyhead[R]{}
+
+%页边距
+\usepackage{geometry}
+\geometry{left=2cm,right=2cm,top=2.5cm,bottom=2.5cm}
 
 %---------------------------------
 %matlab代码显示
@@ -60,9 +71,7 @@
 \newcommand{\Rmnum}[1]{\expandafter\@slowromancap\romannumeral #1@}
 \makeatother
 
-%---------------------------------
-%enumerate格式定制
-%\usepackage{enumitem}
+%\renewcommand{\labelenumi}{\roman{enumi}}
 
 %---------------------------------
 %方程组
@@ -80,22 +89,7 @@
 %---------------------------------
 %插图
 \usepackage{graphicx}
-
-%单图
-%\begin{figure}[!htbp]
-%  \centering
-%  \includegraphics[width=0.7\textwidth]{ }
-%  \caption{ }
-%  %\label{ }
-%\end{ }
-
-%单图不浮动
-\usepackage{float}
-%\begin{figure}[H]
-%   \centering
-%   \includegraphics[ ]{ }
-%   \caption{ }
-%\end{ }
+\usepackage{emp}
 
 %文字绕排
 \usepackage{wrapfig}
@@ -115,19 +109,6 @@
 %   \includegraphics[ ]{ }
 %       \subcaption{ }
 %\end{ }
-
-%图表标题设置
-\usepackage[margin=9pt, font=small, labelfont=bf,labelsep=quad]{caption}[2012/03/25 v3.3]
-
-%中英双标题
-%\bicaption{中文标题}{English title}
-\usepackage{bicaption}[2012/04/09 v1.1]
-
-\captionsetup[figure][bi-first]{name=图}
-\captionsetup[figure][bi-second]{name=Figure}
-
-\captionsetup[table][bi-first]{name=表}
-\captionsetup[table][bi-second]{name=Table}
 
 %---------------------------------
 %标题
@@ -162,7 +143,9 @@
 \usepackage{booktabs}
 \usepackage{bigstrut}
 \usepackage{multirow}
-
+\usepackage{array}
+\usepackage[table]{xcolor}
+\usepackage{tikz}
 \usepackage{chngpage}
 %\begin {table}[H]
 %\caption{This is a long table}
@@ -171,38 +154,43 @@
 %\end{table}
 
 \usepackage{import}
+\usepackage{authblk}
 
+\newcommand{\specialcell}[2][l]{%
+     \begin{tabular}[#1]{@{}l@{}}#2\end{tabular}}
+
+
+%---------------------------------
 \def\tightlist{}
-\newcommand{\figref}[1]{图\ref{#1}}
 
 %---------------------------------
 \begin{document}
 
-\title{}
-\author{}
+\title{ \textbf{\emph{Java大作业选题报告}}}
 \date{\today}
+\author{王超杰 ~ ~ 学号：2013010179 \\ 林超超 ~ ~ 学号：2013010199}
 
-%\maketitle
-
-%---------------------------------
-%\abstract
-
-% \thispagestyle{empty}
-% \newpage
-% \tableofcontents
-% \thispagestyle{empty}
-% \newpage
-% \setcounter{page}{1}
+\maketitle
 
 %---------------------------------
+% \abstract
 
-\input{inputfile.tex}
+%\thispagestyle{empty}
+%\newpage
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\setcounter{page}{1}
+
+%---------------------------------
+
+\input{present.tex}
 
 %---------------------------------
 %参考文献
 
-%\bibliographystyle{plain}
-%\bibliography{bibtex/report}
+\bibliographystyle{plain}
+% \bibliography{bibtex/report}
 
 %---------------------------------
 \end{document}

@@ -8,4 +8,18 @@
 /captures
 
 
-.pdf
+# pdf
+*.aux
+*.log
+*.synctex.gz
+*.pdf
+*.toc
+*.out
+
+*.xlsx
+
+*.synctex.gz(busy)
+*.bbl
+*.blg
+
+*.picasa.ini
